@@ -1,0 +1,25 @@
+{
+  "name": "react_furry_game",
+  "version": "1.0.0",
+  "description": "Furry Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack --watch --mode development ./js/app.js --output ./js/out.js",
+    "build": "webpack --mode production ./js/app.js --output ./js/out.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kasia-basia/WAR_FER_S_42_REACT_Furry_Game.git"
+  },
+  "author": "Kasia Lach",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kasia-basia/WAR_FER_S_42_REACT_Furry_Game/issues"
+  },
+  "homepage": "https://github.com/kasia-basia/WAR_FER_S_42_REACT_Furry_Game#readme",
+  "devDependencies": {
+    "webpack": "^4.22.0",
+    "webpack-cli": "^3.1.2"
+  }
+}
