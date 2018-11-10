@@ -1,15 +1,16 @@
-var Bobby = require("./bobby.js");
-var Coin = require("./coin.js");
+const Bobby = require("./bobby.js");
+const Coin = require("./coin.js");
 
 function Game() {
     this.board = document.querySelectorAll('#board div');
     this.bobby = new Bobby();
     this.coin = new Coin();
-    var score = 0;
+    const scoreboard = document.querySelector('strong');
+    const over = document.querySelector('#over');
+    const finalScore = document.querySelector('.finalScore');
+    let score = 0;
     this.isOver = false;
-    var scoreboard = document.querySelector('strong');
-    var over = document.querySelector('#over');
-    var finalScore = document.querySelector('.finalScore');
+
 
     this.index = function (x, y) {
         return x + (y * 10);
@@ -81,7 +82,6 @@ function Game() {
 
 
     this.gameOver = function () {
-
         if (this.bobby.x < 0 || this.bobby.x > 9 || this.bobby.y < 0 || this.bobby.y > 9) {
             clearInterval(this.idSetInterval);
             this.isOver = true;
@@ -94,10 +94,7 @@ function Game() {
     };
 
     this.startGame = function () {
-        var self = this;
-        this.idSetInterval = setInterval(function () {
-            self.moveBobby()
-        }, 250);
+        this.idSetInterval = setInterval(() => this.moveBobby(), 250);
     };
 
 

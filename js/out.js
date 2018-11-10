@@ -1,1 +1,133 @@
-!function(t){var i={};function e(o){if(i[o])return i[o].exports;var n=i[o]={i:o,l:!1,exports:{}};return t[o].call(n.exports,n,n.exports,e),n.l=!0,n.exports}e.m=t,e.c=i,e.d=function(t,i,o){e.o(t,i)||Object.defineProperty(t,i,{enumerable:!0,get:o})},e.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},e.t=function(t,i){if(1&i&&(t=e(t)),8&i)return t;if(4&i&&"object"==typeof t&&t&&t.__esModule)return t;var o=Object.create(null);if(e.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:t}),2&i&&"string"!=typeof t)for(var n in t)e.d(o,n,function(i){return t[i]}.bind(null,n));return o},e.n=function(t){var i=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(i,"a",i),i},e.o=function(t,i){return Object.prototype.hasOwnProperty.call(t,i)},e.p="",e(e.s=0)}([function(t,i,e){var o=new(e(1));o.showBobby(),o.showCoin(),o.startGame(),document.addEventListener("keydown",function(t){o.turnBobby(t)}),document.querySelector(".playAgain").addEventListener("click",function(){window.location.reload()})},function(t,i,e){var o=e(2),n=e(3);t.exports=function(){this.board=document.querySelectorAll("#board div"),this.bobby=new o,this.coin=new n;var t=0;this.isOver=!1;var i=document.querySelector("strong"),e=document.querySelector("#over"),r=document.querySelector(".finalScore");this.index=function(t,i){return t+10*i},this.showBobby=function(){this.board[this.index(this.bobby.x,this.bobby.y)].classList.add("bobby")},this.hideVisibleBobby=function(){this.visibleDave=document.querySelector(".bobby"),this.visibleDave.classList.remove("bobby")},this.showCoin=function(){this.board[this.index(this.coin.x,this.coin.y)].classList.add("coin")},this.moveBobby=function(){this.hideVisibleBobby(),"right"===this.bobby.direction?this.bobby.x+=1:"left"===this.bobby.direction?this.bobby.x-=1:"down"===this.bobby.direction?this.bobby.y+=1:"up"===this.bobby.direction&&(this.bobby.y-=1),this.checkCoinCollision(),this.gameOver(),!1===this.isOver?this.showBobby():this.showScoreScreen()},this.turnBobby=function(t){switch(t.which){case 37:this.bobby.direction="left";break;case 38:this.bobby.direction="up";break;case 39:this.bobby.direction="right";break;case 40:this.bobby.direction="down"}},this.checkCoinCollision=function(){this.bobby.x===this.coin.x&&this.bobby.y===this.coin.y&&(this.scoredCoin=document.querySelector(".coin"),this.scoredCoin.classList.remove("coin"),t++,i.innerText=t,this.coin=new n,this.showCoin())},this.gameOver=function(){(this.bobby.x<0||this.bobby.x>9||this.bobby.y<0||this.bobby.y>9)&&(clearInterval(this.idSetInterval),this.isOver=!0)},this.showScoreScreen=function(){e.classList.remove("invisible"),r.innerText=t},this.startGame=function(){var t=this;this.idSetInterval=setInterval(function(){t.moveBobby()},250)}}},function(t,i){t.exports=function(){this.x=0,this.y=0,this.direction="right"}},function(t,i){t.exports=function(){this.x=Math.floor(10*Math.random()),this.y=Math.floor(10*Math.random())}}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./js/app.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./js/app.js":
+/*!*******************!*\
+  !*** ./js/app.js ***!
+  \*******************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const Game = __webpack_require__(/*! ./game.js */ \"./js/game.js\");\n\nconst game = new Game();\ngame.showBobby();\ngame.showCoin();\ngame.startGame();\n\ndocument.addEventListener('keydown', function (event) {\n    game.turnBobby(event);\n});\n\nconst refreshButton = document.querySelector('.playAgain');\nrefreshButton.addEventListener('click', function () {\n    window.location.reload();\n});\n\n\n//# sourceURL=webpack:///./js/app.js?");
+
+/***/ }),
+
+/***/ "./js/bobby.js":
+/*!*********************!*\
+  !*** ./js/bobby.js ***!
+  \*********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function Bobby() {\n    this.x = 0;\n    this.y = 0;\n    this.direction = 'right';\n}\n\nmodule.exports = Bobby;\n\n//# sourceURL=webpack:///./js/bobby.js?");
+
+/***/ }),
+
+/***/ "./js/coin.js":
+/*!********************!*\
+  !*** ./js/coin.js ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("function Coin() {\n    this.x = Math.floor(Math.random() * 10);\n    this.y = Math.floor(Math.random() * 10);\n}\n\nmodule.exports = Coin;\n\n//# sourceURL=webpack:///./js/coin.js?");
+
+/***/ }),
+
+/***/ "./js/game.js":
+/*!********************!*\
+  !*** ./js/game.js ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("const Bobby = __webpack_require__(/*! ./bobby.js */ \"./js/bobby.js\");\nconst Coin = __webpack_require__(/*! ./coin.js */ \"./js/coin.js\");\n\nfunction Game() {\n    this.board = document.querySelectorAll('#board div');\n    this.bobby = new Bobby();\n    this.coin = new Coin();\n    const scoreboard = document.querySelector('strong');\n    const over = document.querySelector('#over');\n    const finalScore = document.querySelector('.finalScore');\n    let score = 0;\n    this.isOver = false;\n\n\n    this.index = function (x, y) {\n        return x + (y * 10);\n    };\n\n    this.showBobby = function () {\n        this.board[this.index(this.bobby.x, this.bobby.y)].classList.add('bobby');\n    };\n\n    this.hideVisibleBobby = function () {\n        this.visibleDave = document.querySelector('.bobby');\n        this.visibleDave.classList.remove('bobby');\n    };\n\n    this.showCoin = function () {\n        this.board[this.index(this.coin.x, this.coin.y)].classList.add('coin');\n    };\n\n    this.moveBobby = function () {\n\n        this.hideVisibleBobby();\n        if (this.bobby.direction === \"right\") {\n            this.bobby.x += 1;\n        } else if (this.bobby.direction === \"left\") {\n            this.bobby.x -= 1;\n        } else if (this.bobby.direction === \"down\") {\n            this.bobby.y += 1;\n        } else if (this.bobby.direction === \"up\") {\n            this.bobby.y -= 1;\n        }\n\n        this.checkCoinCollision();\n        this.gameOver();\n        if (this.isOver === false){\n            this.showBobby();\n        } else {\n            this.showScoreScreen();\n        }\n\n    };\n\n    this.turnBobby = function (event) {\n        switch (event.which) {\n            case 37:\n                this.bobby.direction = 'left';\n                break;\n            case 38:\n                this.bobby.direction = 'up';\n                break;\n            case 39:\n                this.bobby.direction = 'right';\n                break;\n            case 40:\n                this.bobby.direction = 'down';\n                break;\n        }\n    };\n\n    this.checkCoinCollision = function () {\n        if (this.bobby.x === this.coin.x && this.bobby.y === this.coin.y) {\n            this.scoredCoin = document.querySelector('.coin');\n            this.scoredCoin.classList.remove('coin');\n            score++;\n            scoreboard.innerText = score;\n            this.coin = new Coin();\n            this.showCoin();\n        }\n    };\n\n\n    this.gameOver = function () {\n        if (this.bobby.x < 0 || this.bobby.x > 9 || this.bobby.y < 0 || this.bobby.y > 9) {\n            clearInterval(this.idSetInterval);\n            this.isOver = true;\n        }\n    };\n\n    this.showScoreScreen = function () {\n        over.classList.remove('invisible');\n        finalScore.innerText = score;\n    };\n\n    this.startGame = function () {\n        this.idSetInterval = setInterval(() => this.moveBobby(), 250);\n    };\n\n\n} module.exports = Game;\n\n//# sourceURL=webpack:///./js/game.js?");
+
+/***/ })
+
+/******/ });
