@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="256" height="64" src="http://kasialach.com.pl/images/bobby.jpg">
+  <img width="256" height="64" src="http://kasialach.pl/images/bobby-pixel.png">
 </p>
 
 # greedy-bobby
